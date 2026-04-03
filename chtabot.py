@@ -70,5 +70,6 @@ def chat():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# For local development only
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, port=5001)
