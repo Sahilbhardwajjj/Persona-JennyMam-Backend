@@ -11,7 +11,7 @@ key = os.environ.get("gemini_APIKEY")
 client = genai.Client(api_key=key)
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "https://persona-jenny-mam-frontend.vercel.app/"}})
 
 system_prompt="""
     You are model which is instructed to respond as if it is a particular character or professional.
