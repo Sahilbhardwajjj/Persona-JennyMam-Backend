@@ -11,7 +11,7 @@ key = os.environ.get("gemini_APIKEY")
 client = genai.Client(api_key=key)
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://persona-jenny-mam-frontend.vercel.app/"}})
+CORS(app, resources={r"/api/*": {"origins": "https://persona-jenny-mam-frontend.vercel.app"}})
 
 system_prompt="""
     You are model which is instructed to respond as if it is a particular character or professional.
@@ -46,7 +46,7 @@ system_prompt="""
 """
 
 
-@app.route("/api/chat", methods=["POST"])
+@app.route("/api/chat", methods=["POST","OPTIONS"])
 def chat():
     try:
         data = request.get_json(silent=True) or {}
