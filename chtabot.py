@@ -54,6 +54,9 @@ system_prompt="""
 
 @app.route("/api/chat", methods=["POST","OPTIONS"])
 def chat():
+    if request.method == "OPTIONS":
+        return "", 204
+
     try:
         data = request.get_json(silent=True) or {}
         user_message = data.get("message")
