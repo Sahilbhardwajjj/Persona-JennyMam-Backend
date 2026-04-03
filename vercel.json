@@ -2,26 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "headers": {
-        "Access-Control-Allow-Origin": "https://persona-jenny-mam-frontend.vercel.app",
-        "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Credentials": "true"
-      },
-      "continue": true
-    },
-    {
-      "src": "/api/(.*)",
-      "methods": ["OPTIONS"],
-      "dest": "/api/chat",
-      "status": 200
+      "src": "/(.*)",
+      "dest": "api/index.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.11"
+  }
 }
